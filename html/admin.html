@@ -1,0 +1,710 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Dashboard | My Salon</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <nav>
+
+            <div class="logo">
+
+                <a href="index.html">
+                    My Salon
+                </a>
+
+            </div>
+
+
+            <div class="nav-links">
+
+                <a href="index.html">
+                    View Website
+                </a>
+
+
+                <button
+                    type="button"
+                    id="logout-btn"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main>
+
+        <section class="admin-dashboard">
+
+
+            <h1>
+                Admin Dashboard
+            </h1>
+
+
+            <p>
+                Manage your salon services and website content.
+            </p>
+
+
+
+            <!-- =================================================
+                 SERVICES SECTION
+            ================================================== -->
+
+            <div class="admin-section">
+
+
+                <!-- SECTION HEADER -->
+
+                <div class="admin-section-header">
+
+                    <div>
+
+                        <h2>
+                            Services
+                        </h2>
+
+                        <p>
+                            Manage your salon service cards and prices.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="add-service-card-btn"
+                    >
+                        + Add Service Card
+                    </button>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ADD / EDIT SERVICE CARD FORM
+                ================================================== -->
+
+                <div
+                    id="add-service-form"
+                    class="admin-form"
+                >
+
+
+                    <h3 id="service-form-title">
+                        Add New Service Card
+                    </h3>
+
+
+
+                    <!-- CATEGORY -->
+
+                    <div class="admin-form-group">
+
+                        <label for="service-category">
+                            Category
+                        </label>
+
+
+                        <select id="service-category">
+
+                            <option value="">
+                                Select Category
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- SERVICE CARD TITLE -->
+
+                    <div class="admin-form-group">
+
+                        <label for="service-title">
+                            Service Card Title
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="service-title"
+                            placeholder="Example: Facial"
+                        >
+
+                    </div>
+
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div class="admin-form-group">
+
+                        <label for="service-description">
+                            Description
+                        </label>
+
+
+                        <textarea
+                            id="service-description"
+                            placeholder="Enter service description"
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- ICON -->
+
+                    <div class="admin-form-group">
+
+                        <label for="service-icon">
+                            Icon
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="service-icon"
+                            placeholder="Example: fa-solid fa-spa"
+                        >
+
+                    </div>
+
+
+
+                    <!-- DISPLAY ORDER -->
+
+                    <div class="admin-form-group">
+
+                        <label for="service-order">
+                            Display Order
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="service-order"
+                            placeholder="Example: 1"
+                            min="1"
+                        >
+
+                    </div>
+
+
+
+                    <!-- FORM BUTTONS -->
+
+                    <div class="admin-form-actions">
+
+                        <button
+                            type="button"
+                            id="save-service-btn"
+                        >
+                            Save Service
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="cancel-service-btn"
+                        >
+                            Cancel
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     SERVICE CARDS
+                ================================================== -->
+
+                <div id="admin-service-cards">
+
+                    <p>
+                        Loading services...
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 OFFERS MANAGEMENT SECTION
+            ================================================== -->
+
+            <div class="admin-section">
+
+
+                <!-- SECTION HEADER -->
+
+                <div class="admin-section-header">
+
+                    <div>
+
+                        <h2>
+                            Offers
+                        </h2>
+
+                        <p>
+                            Manage your salon offers and promotions.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="add-offer-btn"
+                    >
+                        + Add Offer
+                    </button>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ADD / EDIT OFFER FORM
+                ================================================== -->
+
+                <div
+                    id="offer-form"
+                    class="admin-form"
+                >
+
+
+                    <h3 id="offer-form-title">
+                        Add New Offer
+                    </h3>
+
+
+
+                    <!-- OFFER TITLE -->
+
+                    <div class="admin-form-group">
+
+                        <label for="offer-title">
+                            Offer Title
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="offer-title"
+                            placeholder="Example: Bridal Package"
+                        >
+
+                    </div>
+
+
+
+                    <!-- OFFER DESCRIPTION -->
+
+                    <div class="admin-form-group">
+
+                        <label for="offer-description">
+                            Description
+                        </label>
+
+
+                        <textarea
+                            id="offer-description"
+                            placeholder="Enter offer description"
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- OFFER PRICE -->
+
+                    <div class="admin-form-group">
+
+                        <label for="offer-price">
+                            Price
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="offer-price"
+                            placeholder="Example: 999"
+                            min="0"
+                        >
+
+                    </div>
+
+
+
+                    <!-- OFFER VALID UNTIL -->
+
+                    <div class="admin-form-group">
+
+                        <label for="offer-valid-until">
+                            Valid Until
+                        </label>
+
+
+                        <input
+                            type="date"
+                            id="offer-valid-until"
+                        >
+
+                    </div>
+
+
+
+                    <!-- DISPLAY ORDER -->
+
+                    <div class="admin-form-group">
+
+                        <label for="offer-order">
+                            Display Order
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="offer-order"
+                            placeholder="Example: 1"
+                            min="1"
+                        >
+
+                    </div>
+
+
+
+                    <!-- FORM BUTTONS -->
+
+                    <div class="admin-form-actions">
+
+                        <button
+                            type="button"
+                            id="save-offer-btn"
+                        >
+                            Save Offer
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="cancel-offer-btn"
+                        >
+                            Cancel
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     OFFERS LIST
+                ================================================== -->
+
+                <div id="admin-offers">
+
+                    <p>
+                        Loading offers...
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SOCIAL MEDIA MANAGEMENT SECTION
+            ================================================== -->
+
+            <div class="admin-section">
+
+
+                <!-- SECTION HEADER -->
+
+                <div class="admin-section-header">
+
+                    <div>
+
+                        <h2>
+                            Social Media
+                        </h2>
+
+                        <p>
+                            Manage your salon social media links.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="add-social-link-btn"
+                    >
+                        + Add Social Link
+                    </button>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ADD / EDIT SOCIAL LINK FORM
+                ================================================== -->
+
+                <div
+                    id="social-link-form"
+                    class="admin-form"
+                >
+
+
+                    <h3 id="social-link-form-title">
+                        Add New Social Link
+                    </h3>
+
+
+
+                    <!-- PLATFORM -->
+
+                    <div class="admin-form-group">
+
+                        <label for="social-link-platform">
+                            Platform
+                        </label>
+
+
+                        <select id="social-link-platform">
+
+                            <option value="">
+                                Select Platform
+                            </option>
+
+                            <option value="Instagram">
+                                Instagram
+                            </option>
+
+                            <option value="Facebook">
+                                Facebook
+                            </option>
+
+                            <option value="YouTube">
+                                YouTube
+                            </option>
+
+                            <option value="WhatsApp">
+                                WhatsApp
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- URL -->
+
+                    <div class="admin-form-group">
+
+                        <label for="social-link-url">
+                            Social Media URL
+                        </label>
+
+
+                        <input
+                            type="url"
+                            id="social-link-url"
+                            placeholder="https://www.instagram.com/your-salon/"
+                        >
+
+                    </div>
+
+
+
+                    <!-- DISPLAY ORDER -->
+
+                    <div class="admin-form-group">
+
+                        <label for="social-link-order">
+                            Display Order
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="social-link-order"
+                            placeholder="Example: 1"
+                            min="1"
+                        >
+
+                    </div>
+
+
+
+                    <!-- FORM BUTTONS -->
+
+                    <div class="admin-form-actions">
+
+                        <button
+                            type="button"
+                            id="save-social-link-btn"
+                        >
+                            Save Social Link
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="cancel-social-link-btn"
+                        >
+                            Cancel
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     SOCIAL MEDIA LINKS LIST
+                ================================================== -->
+
+                <div id="admin-social-links">
+
+                    <p>
+                        Loading social links...
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 APPOINTMENTS MANAGEMENT SECTION
+            ================================================== -->
+
+            <div class="admin-section">
+
+
+                <!-- SECTION HEADER -->
+
+                <div class="admin-section-header">
+
+                    <div>
+
+                        <h2>
+                            Appointments
+                        </h2>
+
+                        <p>
+                            View customer booking requests and update their status.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     APPOINTMENTS LIST
+                ================================================== -->
+
+                <div id="admin-appointments">
+
+                    <p>
+                        Loading appointments...
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         SUPABASE
+    ====================================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <script
+        src="../js/supabase.js"
+    ></script>
+
+
+    <script
+        src="../js/admin.js"
+    ></script>
+
+
+</body>
+
+</html>

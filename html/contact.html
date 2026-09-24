@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - My Salon</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">My Salon</a>
+            </div>
+
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="service.html">Services</a>
+                <a href="work.html">Our Work</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="nav-button">
+                <button class="nav-btn">Book Appointment</button>
+            </div>
+
+            <button class="nav-toggle" id="navToggle"
+                aria-label="Toggle navigation menu"
+                aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="contact-hero">
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you. Get in touch with us today.</p>
+        </section>
+
+        <div class="contact-location-wrapper">
+
+            <section class="contact-info">
+
+                <div class="contact-details">
+
+                    <div class="contact-card">
+                        <h3>Address</h3>
+                        <p>Pune, Maharashtra</p>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>Phone</h3>
+                        <p>+91 98765 43210</p>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>Email</h3>
+                        <p>info@mysalon.com</p>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>Working Hours</h3>
+                        <p>Monday - Sunday, 10:00 AM - 9:00 PM</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="location-section">
+
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3598.419439105032!2d75.18609532518886!3d18.40493428266633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc48fd9ef18d613%3A0x11ae7700c3980870!2sSiddhart%20Nagar%2C%20Karmala%2C%20Maharashtra%20413203!5e1!3m2!1sen!2sin!4v1786801302013!5m2!1sen!2sin"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+
+            </section>
+
+        </div>
+
+        <section class="contact-form-section">
+
+            <h2>Book a Session</h2>
+
+            <form id="booking-form">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="Enter your phone number"
+                            pattern="[0-9]{10}"
+                            title="Please enter a valid 10-digit phone number"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Preferred Date</label>
+                        <input type="date"
+                            id="date"
+                            name="date"
+                            required>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="service">Service</label>
+
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="haircut">Haircut</option>
+                            <option value="hair-color">Hair Color</option>
+                            <option value="hair-spa">Hair Spa</option>
+                            <option value="facial">Facial</option>
+                            <option value="makeup">Makeup</option>
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time">Preferred Time</label>
+                        <input type="time"
+                            id="time"
+                            name="time"
+                            min="10:00"
+                            max="21:00"
+                            required>
+                    </div>
+
+                </div>
+
+                <div class="form-group full-width">
+
+                    <label for="message">Message</label>
+
+                    <textarea id="message"
+                        name="message"
+                        placeholder="Write your message or any special requests...">
+                    </textarea>
+
+                </div>
+
+                <button type="submit" id="booking-submit-btn">
+                    Book Appointment
+                </button>
+
+                <p id="booking-message" role="status"></p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+
+        <div class="footer-content">
+
+            <div class="footer-about">
+                <h3>My Salon</h3>
+                <p>
+                    Beauty, style, and confidence — all in one place.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="service.html">Services</a>
+                <a href="work.html">Our Work</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p>+91 98765 43210</p>
+                <p>info@mysalon.com</p>
+                <p>Pune, Maharashtra</p>
+
+                <div class="footer-social">
+
+                    <a href="#" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#" aria-label="WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>© 2026 My Salon. All Rights Reserved.</p>
+
+            <div class="footer-admin">
+
+                <a href="#" aria-label="Admin">
+                    <i class="fa-solid fa-user-shield"></i>
+                    Admin
+                </a>
+
+                <a href="#" aria-label="Privacy">
+                    <i class="fa-solid fa-lock"></i>
+                    Privacy
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/supabase.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/booking.js"></script>
+
+</body>
+
+</html>

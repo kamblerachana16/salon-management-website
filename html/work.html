@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work - My Salon</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">My Salon</a>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="service.html">Services</a>
+                <a href="work.html">Our Work</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-button">
+                <button class="nav-btn">Book Appointment</button>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="work-hero">
+
+            <h1>Our Work</h1>
+
+            <p>Explore our latest hairstyles, beauty looks, and salon transformations.</p>
+
+        </section>
+        <nav class="work-nav">
+            <a href="#all-work" data-filter="all">All</a>
+            <a href="#haircuts" data-filter="haircuts">Haircuts</a>
+            <a href="#hair-color" data-filter="hair-color">Hair Color</a>
+            <a href="#styling" data-filter="styling">Styling</a>
+        </nav>
+        <section class="work-gallery" id="all-work">
+
+            <h2>Our Latest Work</h2>
+
+            <div class="work-grid">
+
+                <div class="work-item" id="haircuts" data-category="haircuts">
+                    <img src="work1.jpg" alt="Salon hairstyle">
+                </div>
+                <div class="work-item" id="hair-color" data-category="hair-color">
+                    <img src="work2.jpg" alt="Salon hair styling">
+                </div>
+                <div class="work-item" id="styling" data-category="styling">
+                    <img src="work3.jpg" alt="Salon hair transformation">
+                </div>
+                <div class="work-item" id="styling-2" data-category="styling">
+                    <img src="work4.jpg" alt="Salon beauty look">
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+    <footer class="site-footer">
+
+        <div class="footer-content">
+
+            <div class="footer-about">
+                <h3>My Salon</h3>
+                <p>
+                    Beauty, style, and confidence — all in one place.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="service.html">Services</a>
+                <a href="work.html">Our Work</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p>+91 98765 43210</p>
+                <p>info@mysalon.com</p>
+                <p>Pune, Maharashtra</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 My Salon. All Rights Reserved.</p>
+        </div>
+
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

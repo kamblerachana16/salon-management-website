@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | My Salon</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">My Salon</a>
+            </div>
+
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="service.html">Services</a>
+                <a href="work.html">Our Work</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="nav-button">
+                <button class="nav-btn">Book Appointment</button>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="services-hero">
+            <div class="services-hero-content">
+                <h1>Our Services</h1>
+                <p>Discover our range of hair and beauty services.</p>
+                <button class="service-appointment-btn">Book Appointment</button>
+            </div>
+
+        </section>
+        <section class="service-ticker">
+            <div class="ticker-content">
+                HAIR CARE ✦ BEAUTY ✦ DIAMOND STUDIO ✦ PREMIUM SALON ✦ GROOMING ✦ HAIR STYLING ✦
+            </div>
+        </section>
+        <nav class="service-nav">
+            <a href="#women-services">Women</a>
+            <a href="#men-services">Men</a>
+            <a href="#kids-services">Kids</a>
+        </nav>
+        <!-- WOMEN  SECTION  -->
+
+        <section class="service-section" id="women-services">
+            <h2>Women</h2>
+
+            <div class="service-cards-container" id="women-cards">
+                <!-- Women service cards will be loaded from Supabase -->
+            </div>
+        </section>
+        <!-- MEN SECTION -->
+
+        <section class="service-section" id="men-services">
+            <h2>Men</h2>
+
+            <div class="service-cards-container" id="men-cards">
+                <!-- Men service cards will be loaded from Supabase -->
+            </div>
+        </section>
+        <!-- KIDS SECTION -->
+        <section class="service-section" id="kids-services">
+            <h2>Kids</h2>
+
+            <div class="service-cards-container" id="kids-cards">
+                <!-- Kids service cards will be loaded from Supabase -->
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+
+        <div class="footer-content">
+
+            <div class="footer-about">
+                <h3>My Salon</h3>
+                <p>
+                    Beauty, style, and confidence — all in one place.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="service.html">Services</a>
+                <a href="work.html">Our Work</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p>+91 98765 43210</p>
+                <p>info@mysalon.com</p>
+                <p>Pune, Maharashtra</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 My Salon. All Rights Reserved.</p>
+        </div>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/supabase.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/services.js"></script>
+</body>
+
+</html>

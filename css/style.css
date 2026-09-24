@@ -1,0 +1,3308 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Safety net: no image should ever overflow its container,
+   even ones we haven't explicitly sized (like team/work photos
+   once real content replaces the placeholders). */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Prevents any stray wide element from creating horizontal scroll */
+body {
+    overflow-x: hidden;
+}
+
+:root {
+    --black: #0D0C0B;
+    --dark: #141210;
+    --card: #1B1916;
+    --brown: #1E1914;
+    --gold: #C9A45C;
+    --gold-light: #D8B978;
+    --cream: #E8DCC8;
+    --text: #C9BDAA;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--cream);
+}
+
+a {
+    color: var(--cream);
+    text-decoration: none;
+}
+
+
+
+/* =========================
+   HOME PAGE
+========================= */
+
+
+
+nav {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background-color: transparent;
+
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(13, 12, 11, 0.92);
+    backdrop-filter: blur(8px);
+}
+
+.nav-links {
+    display: flex;
+    gap: 60px;
+
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 20px;
+    color: var(--text);
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: var(--gold);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -8px;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+.nav-button button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--gold);
+    color: var(--black);
+}
+
+.nav-button button:hover {
+    background-color: var(--gold-light);
+    transform: scale(1.05);
+
+}
+
+/* Mobile menu button — hidden on desktop/tablet, shown under 768px */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 34px;
+    height: 34px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--gold);
+    transition: 0.3s ease;
+}
+
+/* Turns the 3 bars into an X when the menu is open */
+.nav-toggle-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle-open span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+.hero {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    background-image: url('sample-salon.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    align-items: center;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content::before {
+    content: "";
+    width: 80px;
+    height: 1px;
+    background-color: var(--gold);
+    margin-bottom: 5px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(13, 12, 11, 0.45);
+    z-index: 0;
+
+}
+
+.hero h1 {
+    font-size: clamp(32px, 6vw, 60px);
+    text-shadow: 2px 2px 5px black;
+    color: var(--cream);
+    text-align: center;
+    padding: 0 16px;
+
+}
+
+.hero p {
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: var(--text);
+}
+
+.hero-btn {
+    padding: 12px 30px;
+    display: flex;
+    border-radius: 30px;
+    transition: 0.3s;
+    background-color: var(--gold);
+    color: var(--black);
+}
+
+.hero-btn:hover {
+    transform: scale(1.05);
+    background-color: var(--gold-light);
+}
+
+.hero h1,
+.hero p,
+.hero-btn {
+    position: relative;
+    z-index: 1;
+}
+
+.intro-label {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.intro {
+    padding: 90px 20px;
+    text-align: center;
+    background-color: var(--brown);
+
+}
+
+.intro h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: var(--gold);
+}
+
+.intro p {
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+    color: var(--text);
+}
+
+.services {
+    padding: 80px 40px;
+    background-color: var(--brown);
+
+}
+
+.services h2 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: var(--gold);
+}
+
+.services h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: var(--gold);
+    margin: 15px auto 0;
+}
+
+.services>p {
+    text-align: center;
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 50px;
+    color: var(--text);
+}
+
+.service-categories {
+    display: flex;
+    gap: 25px;
+}
+
+.category {
+    flex: 1;
+    height: 500px;
+    background-color: var(--card);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(201, 164, 92, 0.35);
+    transition: 0.4s ease;
+}
+
+.category:hover {
+    border-color: var(--gold);
+    box-shadow: 0 0 25px rgba(201, 164, 92, 0.25);
+    transform: translateY(-6px);
+}
+
+.category a {
+    text-decoration: none;
+}
+
+.category a {
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--cream);
+    font-weight: 600;
+}
+
+.category img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.category:hover img {
+    transform: scale(1.05);
+}
+
+/* =========================
+   SERVICES PAGE
+========================= */
+.service-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 40px;
+    margin: 40px 0;
+    padding: 0 20px;
+    background-color: var(--brown);
+}
+
+.service-nav a {
+    text-decoration: none;
+    font-size: 18px;
+    color: var(--text);
+}
+
+.service-nav a:hover {
+    color: #8b5e3c;
+}
+
+.services-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+    background-color: var(--brown);
+}
+
+.services-hero h1 {
+    font-size: clamp(30px, 5.5vw, 50px);
+    text-shadow: 2px 2px 5px black;
+    text-align: center;
+    padding: 0 16px;
+}
+
+.services-hero p {
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.service-appointment-btn {
+    padding: 12px 30px;
+    display: flex;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.service-appointment-btn:hover {
+    transform: scale(1.05);
+}
+
+/* SERVICES TICKER */
+.service-ticker {
+    width: 100%;
+    overflow: hidden;
+    padding: 8px 0;
+    background-color: var(--brown);
+}
+
+.ticker-content {
+    display: inline-block;
+    white-space: nowrap;
+    animation: ticker 15s linear infinite;
+    font-size: 14px;
+
+}
+
+@keyframes ticker {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* WOMEN SECTION&*/
+.service-section h2 {
+    width: 100%;
+}
+
+@media (min-width: 480px) {
+    .service-card {
+        min-height: 550px;
+    }
+}
+
+.service-card {
+    width: 100%;
+    max-width: 350px;
+    min-height: auto;
+    padding: 30px;
+    box-sizing: border-box;
+    border: 2px solid #b79f664e;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--dark);
+
+
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(201, 164, 92, 0.25);
+}
+
+.service-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding: 60px 20px;
+    background-color: var(--brown);
+}
+
+.service-section h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
+    margin: 0 0 40px;
+}
+
+.service-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.service-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.service-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.service-item {
+    border-bottom: 1px solid #ccc;
+}
+
+.service-item span:last-child {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.service-item span:first-child {
+    font-size: 15px;
+}
+
+
+
+/* =========================
+   OUR WORK PAGE
+========================= */
+.work-hero {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: var(--brown);
+
+}
+
+.work-hero h1 {
+    font-size: clamp(30px, 5.5vw, 50px);
+    margin-bottom: 15px;
+    color: var(--gold);
+}
+
+.work-hero p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text);
+
+}
+
+.work-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px 40px;
+    margin: 20px 0 50px;
+    padding: 0 20px;
+
+}
+
+.work-nav a {
+    text-decoration: none;
+    font-size: 17px;
+    color: var(--cream);
+}
+
+.work-nav a:hover {
+    color: var(--gold);
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 0 40px 60px;
+
+}
+
+.work-item {
+    overflow: hidden;
+
+}
+
+.work-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.work-item:hover img {
+    transform: scale(1.05);
+}
+
+.work-item:hover {
+    box-shadow: 0 0 25px rgba(201, 164, 92, 0.25);
+}
+
+.work-gallery h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: var(--gold);
+}
+
+.work-gallery h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: var(--gold);
+    margin: 15px auto 0;
+}
+
+.work-gallery {
+    padding: 20px 0 60px;
+    background-color: var(--brown);
+}
+
+/* Service cards layout */
+.service-cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Mobile service cards */
+@media (max-width: 768px) {
+    .service-cards-container {
+        grid-template-columns: 1fr;
+    }
+}
+/* =========================
+   ABOUT US PAGE
+========================= */
+.about-hero {
+    padding: 100px 20px;
+    text-align: center;
+    background-color: var(--brown);
+}
+
+.about-hero h1 {
+    font-size: clamp(30px, 5.5vw, 50px);
+    margin-bottom: 15px;
+    color: var(--gold);
+}
+
+.about-hero p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text);
+}
+
+.about-hero h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: var(--gold);
+    margin: 15px auto 0;
+}
+
+.about-story {
+    padding: 100px 40px;
+    text-align: center;
+    background-color: var(--brown);
+}
+
+.story-content {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.story-label {
+    display: block;
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.about-story h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: var(--gold);
+}
+
+.about-story p {
+    max-width: 100%;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-size: 17px;
+    color: var(--text);
+}
+
+.team-section {
+    padding: 100px 40px;
+    background-color: var(--brown);
+}
+
+.team-section h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    grid-column: 1 / -1;
+    color: var(--gold);
+}
+
+.team-section h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: var(--gold);
+    margin: 15px auto 0;
+}
+
+.team-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-member img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+    transition: transform 0.4s ease;
+}
+
+.team-member:hover img {
+    transform: scale(1.03);
+}
+
+.team-member img:hover {
+    box-shadow: 0 0 20px rgba(201, 164, 92, 0.18);
+}
+
+.team-member h3 {
+    font-size: 22px;
+    margin: 15px 0 8px;
+    color: var(--cream);
+}
+
+.team-member p {
+    line-height: 1.6;
+    font-size: 16px;
+    color: var(--text);
+}
+
+.why-us {
+    padding: 70px 40px;
+    text-align: center;
+    background-color: var(--brown);
+
+}
+
+.why-us h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: var(--gold);
+}
+
+.why-us>p {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+    font-size: 17px;
+    color: var(--text);
+}
+
+.why-us-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.why-us-items>div {
+    padding: 30px;
+    border: 1px solid rgba(201, 164, 92, 0.25);
+    border-radius: 12px;
+}
+
+.why-us-items h3 {
+    font-size: 21px;
+    margin-bottom: 10px;
+    color: var(--cream);
+}
+
+.why-us-items p {
+    line-height: 1.6;
+    font-size: 16px;
+    color: var(--text);
+}
+
+.why-us-items>div {
+    transition: 0.4s ease;
+}
+
+.why-us-items>div:hover {
+    border-color: var(--gold);
+    box-shadow: 0 0 20px rgba(201, 164, 92, 0.18);
+    transform: translateY(-5px);
+}
+
+/* =========================
+   CONTACT PAGE
+========================= */
+.contact-hero {
+    padding: 100px 20px;
+    text-align: center;
+    background-color: var(--brown);
+}
+
+.contact-hero h1 {
+    font-size: clamp(30px, 5.5vw, 50px);
+    margin-bottom: 15px;
+    color: var(--gold);
+}
+
+.contact-hero h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: var(--gold);
+    margin: 15px auto 0;
+}
+
+.contact-hero p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text);
+}
+
+.contact-info {
+    padding: 0;
+    text-align: center;
+    background-color: var(--brown);
+    color: var(--text);
+
+}
+
+.contact-location-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 60px 40px;
+    background-color: var(--brown);
+    align-items: stretch;
+}
+
+.contact-details {
+    max-width: 650px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-card {
+    padding: 20px 25px;
+    border: 1px solid rgba(201, 164, 92, 0.25);
+    border-radius: 12px;
+    background-color: #1E1914;
+}
+
+.contact-card h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: var(--gold);
+}
+
+.contact-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text);
+    margin: 0;
+}
+
+.contact-card {
+    transition: 0.3s ease;
+}
+
+.contact-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+}
+
+.contact-info h2 {
+    font-size: 36px;
+    margin-bottom: 25px;
+    color: var(--gold);
+}
+
+.contact-info h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: var(--gold);
+    margin: 15px auto 0;
+}
+
+.contact-info p {
+    font-size: 17px;
+    line-height: 1.8;
+
+}
+
+.location-section {
+    padding: 0;
+    text-align: center;
+    background-color: var(--brown);
+}
+
+.location-section {
+    padding: 0;
+    text-align: center;
+    background-color: var(--brown);
+    border: 1px solid rgba(201, 164, 92, 0.25);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.location-section h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: var(--gold);
+    margin: 15px auto 0;
+}
+
+.location-section iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    margin-top: 0;
+    border-radius: 12px;
+}
+
+.contact-form-section {
+    padding: 55px 55px;
+    max-width: 1000px;
+    margin: 110px auto 70px;
+    border: 1px solid rgba(201, 164, 92, 0.4);
+    border-radius: 25px;
+    background-color: #0f0d0b;
+    box-sizing: border-box;
+}
+
+.contact-form-section h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: var(--gold);
+}
+
+.contact-form-section h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: var(--gold);
+    margin: 15px auto 0;
+}
+
+.contact-form-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    min-width: 220px;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.contact-form-section label {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--gold);
+}
+
+.contact-form-section input,
+.contact-form-section textarea,
+.contact-form-section select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 16px;
+    border: 1px solid rgba(201, 164, 92, 0.6);
+    background-color: #1E1914;
+    color: var(--gold);
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.contact-form-section input::placeholder,
+.contact-form-section textarea::placeholder {
+    color: rgba(245, 235, 220, 0.55);
+}
+
+.contact-form-section select {
+    cursor: pointer;
+}
+
+.contact-form-section input[type="date"],
+.contact-form-section input[type="time"] {
+    background-color: #1E1914 !important;
+    color: var(--gold) !important;
+    border: 1px solid rgba(201, 164, 92, 0.6) !important;
+    color-scheme: dark;
+}
+
+.contact-form-section input:focus,
+.contact-form-section textarea:focus,
+.contact-form-section select:focus {
+    background-color: #1E1914 !important;
+    color: var(--gold) !important;
+    outline: none;
+    border-color: var(--gold) !important;
+}
+
+.contact-form-section input:focus,
+.contact-form-section textarea:focus,
+.contact-form-section select:focus {
+    background-color: #1E1914 !important;
+    color: var(--gold) !important;
+    outline: none;
+    border-color: var(--gold) !important;
+}
+
+.contact-form-section input:-webkit-autofill,
+.contact-form-section input:-webkit-autofill:hover,
+.contact-form-section input:-webkit-autofill:focus,
+.contact-form-section textarea:-webkit-autofill,
+.contact-form-section select:-webkit-autofill {
+    -webkit-text-fill-color: var(--gold) !important;
+    -webkit-box-shadow: 0 0 0px 1000px #1E1914 inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.contact-form-section textarea {
+    min-height: 110px;
+    resize: vertical;
+    border-radius: 8px;
+}
+
+.contact-form-section button {
+    padding: 12px 28px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--gold);
+    color: #1E1914;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: 0.3s ease;
+    align-self: center;
+    margin-top: 5px;
+}
+
+.contact-form-section button:hover {
+    background-color: #d4b06a;
+    transform: translateY(-2px);
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Footer */
+.site-footer {
+    background-color: var(--dark);
+    padding: 50px 40px 20px;
+}
+
+.site-footer h3 {
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+}
+
+.site-footer p,
+.site-footer a {
+    color: var(--text);
+}
+
+.site-footer a {
+    transition: color 0.3s ease;
+}
+
+.site-footer a:hover {
+    color: var(--gold);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.footer-about,
+.footer-links,
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 30px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(201, 164, 92, 0.2);
+}
+
+/* Social Icons */
+
+.footer-social {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.footer-social a {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    color: var(--gold) !important;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.footer-social a i {
+    color: var(--gold) !important;
+    font-size: 15px;
+}
+
+.footer-social a:hover {
+    background-color: var(--gold);
+}
+
+.footer-social a:hover i {
+    color: #1E1914 !important;
+}
+
+/* Admin and Privacy */
+
+.footer-admin {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.footer-admin a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(245, 235, 220, 0.6) !important;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.footer-admin a i {
+    color: rgba(245, 235, 220, 0.6) !important;
+    font-size: 11px;
+}
+
+.footer-admin a:hover,
+.footer-admin a:hover i {
+    color: var(--gold) !important;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .site-footer .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .site-footer .footer-admin {
+        justify-content: center;
+    }
+
+    .footer-social {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .work-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px 40px;
+    }
+
+    .team-section {
+        grid-template-columns: 1fr;
+        padding: 70px 20px;
+    }
+
+    .why-us-items {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* =========================
+   TABLET (769px - 1024px)
+   Added in the responsive pass: the sections below had
+   no tablet-specific rules before, so a phone-sized fix
+   was the only fix — this closes that gap.
+========================= */
+@media (max-width: 1024px) {
+
+    .nav-links {
+        gap: 30px;
+    }
+
+    .nav-links a {
+        font-size: 17px;
+    }
+
+    nav {
+        padding: 20px 25px;
+    }
+
+    .service-categories {
+        flex-wrap: wrap;
+    }
+
+    .category {
+        flex: 1 1 45%;
+        height: 400px;
+    }
+
+    .team-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .why-us-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-location-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .location-section iframe {
+        min-height: 320px;
+    }
+}
+
+/* =========================
+   MOBILE (max 768px)
+   Navigation: collapse the link list behind a hamburger
+   button. We hide the "Book Appointment" pill in the
+   header specifically on mobile because every page already
+   repeats that same call-to-action in its hero section —
+   showing it twice in a cramped header just adds clutter.
+========================= */
+@media (max-width: 768px) {
+
+    nav {
+        padding: 16px 20px;
+        position: relative;
+        flex-wrap: nowrap;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 22px;
+        background-color: rgba(13, 12, 11, 0.98);
+        backdrop-filter: blur(8px);
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 20px;
+        transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+
+    .nav-links.nav-open {
+        max-height: 400px;
+        padding: 28px 20px;
+        border-top: 1px solid rgba(201, 164, 92, 0.25);
+    }
+
+    /* Hero / page-header sections: less padding on small screens */
+    .hero {
+        height: 420px;
+    }
+
+    .intro,
+    .services,
+    .work-hero,
+    .about-hero,
+    .about-story,
+    .team-section,
+    .why-us,
+    .contact-hero,
+    .work-gallery {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .intro {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .services {
+        padding-top: 55px;
+        padding-bottom: 55px;
+    }
+
+    /* Home page service category cards: stack instead of
+       squeezing 3 cards into one row */
+    .service-categories {
+        flex-direction: column;
+    }
+
+    .category {
+        flex: 1 1 auto;
+        height: 280px;
+    }
+
+    /* Services page: cards already shrink via max-width:350px,
+       this just tightens the outer section padding */
+    .service-section {
+        padding: 40px 16px;
+        gap: 20px;
+    }
+
+    /* Our Work gallery images: shorter fixed height so a single
+       photo doesn't dominate the whole mobile screen */
+    .work-item img {
+        height: 240px;
+    }
+
+    .team-member img {
+        height: 260px;
+    }
+
+    .about-story,
+    .team-section,
+    .why-us {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    /* Contact page */
+    .contact-location-wrapper {
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
+    .location-section iframe {
+        min-height: 280px;
+    }
+
+    .contact-form-section {
+        padding: 30px 20px;
+        margin: 50px auto 40px;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-row .form-group {
+        min-width: 0;
+    }
+}
+/* =========================================================
+   ADMIN DASHBOARD
+========================================================= */
+
+.admin-dashboard {
+    min-height: 70vh;
+    padding: 80px 40px;
+    background-color: var(--brown);
+}
+
+.admin-dashboard h1 {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 15px;
+    color: var(--gold);
+}
+
+.admin-dashboard > p {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+    color: var(--text);
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   ADMIN SECTION
+========================================================= */
+
+.admin-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.admin-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.admin-section-header h2 {
+    margin: 0;
+    font-size: 32px;
+    color: var(--gold);
+}
+
+.admin-section-header p {
+    margin: 6px 0 0;
+    color: var(--text);
+}
+
+
+/* =========================================================
+   ADD SERVICE BUTTON
+========================================================= */
+
+#add-service-card-btn {
+    padding: 12px 22px;
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    background-color: var(--gold);
+    color: var(--black);
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+    white-space: nowrap;
+
+    transition: 0.3s ease;
+}
+
+#add-service-card-btn:hover {
+    background-color: var(--gold-light);
+    transform: translateY(-2px);
+}
+
+/* =====================================================
+   ADMIN LOGOUT BUTTON
+===================================================== */
+
+#logout-btn {
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+
+    padding: 8px 14px;
+    margin-left: 15px;
+
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+
+    background-color: transparent;
+    color: var(--gold);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+#logout-btn:hover {
+    background-color: var(--gold);
+    color: var(--black);
+}
+
+/* =========================================================
+   ADMIN CATEGORY
+========================================================= */
+
+.admin-category-section {
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.admin-category-title {
+    margin: 0 0 25px;
+    font-size: 30px;
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   SERVICE CARDS GRID
+========================================================= */
+
+#admin-service-cards {
+    width: 100%;
+}
+
+.admin-category-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    width: 100%;
+}
+
+
+/* =========================================================
+   ADMIN SERVICE CARD
+========================================================= */
+
+.admin-service-card {
+    width: 100%;
+    min-width: 0;
+    min-height: 230px;
+
+    padding: 25px;
+
+    background-color: var(--dark);
+
+    border: 1px solid rgba(201, 164, 92, 0.35);
+    border-radius: 14px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.admin-service-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 0 25px rgba(201, 164, 92, 0.18);
+    transform: translateY(-4px);
+}
+
+
+/* =========================================================
+   CARD TOP CONTENT
+========================================================= */
+
+.admin-service-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 5px;
+}
+
+.admin-service-icon {
+    flex-shrink: 0;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(201, 164, 92, 0.35);
+    border-radius: 8px;
+
+    color: var(--gold);
+    font-size: 20px;
+}
+
+.admin-service-info h3 {
+    margin: 0 0 8px;
+
+    font-size: 21px;
+    line-height: 1.3;
+
+    color: var(--cream);
+}
+
+.admin-service-info p {
+    margin: 0 0 8px;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    color: var(--text);
+}
+
+.admin-service-info small {
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--gold);
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   SERVICE ITEMS
+========================================================= */
+
+.admin-service-items {
+    margin-top: 18px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-service-item {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 12px;
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid rgba(201, 164, 92, 0.15);
+}
+
+.admin-service-item:last-child {
+    border-bottom: none;
+}
+.admin-service-item-details {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.admin-service-item-name {
+    flex: 1;
+    min-width: 0;
+
+    color: var(--text);
+
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.admin-service-item-price {
+    flex-shrink: 0;
+
+    color: var(--gold);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.admin-service-item-price.not-set {
+    color: rgba(201, 164, 92, 0.55);
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   EDIT / DELETE BUTTONS INSIDE SERVICE ITEMS
+========================================================= */
+
+/* 
+   This fixes the ugly default browser buttons
+   visible in your screenshot.
+*/
+
+.admin-service-item button {
+    flex-shrink: 0;
+
+    padding: 5px 10px;
+
+    border: 1px solid rgba(201, 164, 92, 0.5);
+    border-radius: 5px;
+
+    background-color: transparent;
+    color: var(--gold);
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.admin-service-item button:hover {
+    background-color: var(--gold);
+    color: var(--black);
+    border-color: var(--gold);
+}
+
+
+/* If Edit and Delete buttons are inside a wrapper */
+
+.admin-service-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   MAIN CARD ACTION BUTTONS
+========================================================= */
+
+.admin-service-actions {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 25px;
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(201, 164, 92, 0.15);
+}
+
+.admin-service-actions button {
+    flex: 1;
+
+    min-width: 70px;
+
+    padding: 9px 14px;
+
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+
+    background-color: transparent;
+    color: var(--gold);
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.admin-service-actions button:hover {
+    background-color: var(--gold);
+    color: var(--black);
+}
+
+
+/* =========================================================
+   ADD / EDIT SERVICE FORM
+========================================================= */
+
+.admin-form {
+    display: none;
+
+    width: 100%;
+
+    margin: 30px 0 50px;
+    padding: 35px;
+
+    background-color: var(--dark);
+
+    border: 1px solid rgba(201, 164, 92, 0.35);
+    border-radius: 15px;
+
+    box-sizing: border-box;
+}
+
+.admin-form h3 {
+    margin: 0 0 30px;
+
+    color: var(--gold);
+    font-size: 26px;
+}
+
+.admin-form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+.admin-form-group label {
+    color: var(--gold);
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.admin-form-group input,
+.admin-form-group textarea,
+.admin-form-group select {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid rgba(201, 164, 92, 0.5);
+    border-radius: 6px;
+
+    background-color: #1E1914;
+    color: var(--cream);
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+
+    box-sizing: border-box;
+}
+
+.admin-form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.admin-form-group input:focus,
+.admin-form-group textarea:focus,
+.admin-form-group select:focus {
+    outline: none;
+
+    border-color: var(--gold);
+
+    box-shadow: 0 0 0 2px rgba(201, 164, 92, 0.08);
+}
+
+
+/* =========================================================
+   FORM BUTTONS
+========================================================= */
+
+.admin-form-actions {
+    display: flex;
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.admin-form-actions button {
+    padding: 11px 22px;
+
+    border: 1px solid var(--gold);
+    border-radius: 7px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+#save-service-btn {
+    background-color: var(--gold);
+    color: var(--black);
+}
+
+#save-service-btn:hover {
+    background-color: var(--gold-light);
+}
+
+#cancel-service-btn {
+    background-color: transparent;
+    color: var(--gold);
+}
+
+#cancel-service-btn:hover {
+    background-color: var(--gold);
+    color: var(--black);
+}
+
+
+/* =========================================================
+   ADMIN LOGIN
+========================================================= */
+
+.admin-login {
+    min-height: calc(100vh - 70px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 80px 20px;
+
+    background-color: var(--brown);
+}
+
+.admin-login-box {
+    width: 100%;
+    max-width: 450px;
+
+    padding: 50px 45px;
+
+    background-color: var(--dark);
+
+    border: 1px solid rgba(201, 164, 92, 0.4);
+    border-radius: 12px;
+
+    box-shadow: 0 0 25px rgba(201, 164, 92, 0.12);
+
+    box-sizing: border-box;
+}
+
+.admin-login-box h1 {
+    text-align: center;
+
+    font-size: 36px;
+
+    margin-bottom: 15px;
+
+    color: var(--gold);
+}
+
+.admin-login-box h1::after {
+    content: "";
+
+    display: block;
+
+    width: 60px;
+    height: 1px;
+
+    margin: 15px auto 0;
+
+    background-color: var(--gold);
+}
+
+.admin-login-box > p {
+    text-align: center;
+
+    font-size: 16px;
+    line-height: 1.6;
+
+    margin-bottom: 35px;
+
+    color: var(--text);
+}
+
+.admin-login-box form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+#admin-login-btn {
+    padding: 12px 28px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: var(--gold);
+    color: #1E1914;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+    align-self: center;
+
+    margin-top: 5px;
+}
+
+#admin-login-btn:hover {
+    background-color: var(--gold-light);
+    transform: translateY(-2px);
+}
+
+#login-message {
+    min-height: 20px;
+
+    text-align: center;
+
+    color: var(--gold);
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   ADMIN TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    .admin-dashboard {
+        padding: 70px 30px;
+    }
+
+    .admin-category-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   ADMIN MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .admin-dashboard {
+        padding: 55px 20px;
+    }
+
+    .admin-dashboard h1 {
+        font-size: 34px;
+    }
+
+    .admin-dashboard > p {
+        margin-bottom: 40px;
+    }
+
+    .admin-section-header {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+    #add-service-card-btn {
+        width: 100%;
+    }
+
+    .admin-category-title {
+        font-size: 26px;
+    }
+
+    .admin-category-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .admin-service-card {
+        padding: 22px;
+    }
+
+    .admin-service-info h3 {
+        font-size: 19px;
+    }
+
+    .admin-service-item {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .admin-service-item-name {
+        flex: 1 1 100%;
+    }
+
+    .admin-service-item-price {
+        margin-right: auto;
+    }
+
+    .admin-service-item-actions {
+        margin-left: auto;
+    }
+
+    .admin-service-actions {
+        gap: 8px;
+    }
+
+    .admin-service-actions button {
+        min-width: 0;
+        padding: 9px 10px;
+    }
+
+    .admin-form {
+        padding: 25px 20px;
+    }
+
+    .admin-form-actions {
+        flex-direction: column;
+    }
+
+    .admin-form-actions button {
+        width: 100%;
+    }
+
+    .admin-login {
+        padding: 50px 20px;
+    }
+
+    .admin-login-box {
+        padding: 35px 25px;
+    }
+
+    .admin-login-box h1 {
+        font-size: 30px;
+    }
+
+}
+.admin-service-card button {
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+}
+
+.admin-service-card > button {
+    padding: 8px 14px;
+    margin-top: 12px;
+
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+
+    background-color: transparent;
+    color: var(--gold);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.admin-service-card > button:hover {
+    background-color: var(--gold);
+    color: var(--black);
+}
+/* =========================================================
+   ADMIN OFFER MANAGEMENT
+========================================================= */
+
+#offer-form,
+#admin-offers {
+    scroll-margin-top: 100px;
+}
+
+
+/* =========================================================
+   ADD OFFER BUTTON
+========================================================= */
+
+#add-offer-btn {
+    padding: 12px 22px;
+
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+
+    background-color: var(--gold);
+    color: var(--black);
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+    white-space: nowrap;
+
+    transition: 0.3s ease;
+}
+
+#add-offer-btn:hover {
+    background-color: var(--gold-light);
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   OFFER FORM
+========================================================= */
+
+#offer-form {
+    background-color: var(--dark);
+
+    border: 1px solid rgba(201, 164, 92, 0.35);
+    border-radius: 15px;
+
+    box-shadow: 0 0 25px rgba(201, 164, 92, 0.08);
+}
+
+
+/* =========================================================
+   OFFER FORM DATE INPUT
+========================================================= */
+
+#offer-form input[type="date"] {
+    color-scheme: dark;
+}
+
+
+/* =========================================================
+   OFFER FORM BUTTONS
+========================================================= */
+
+#save-offer-btn {
+    background-color: var(--gold);
+    color: var(--black);
+}
+
+#save-offer-btn:hover {
+    background-color: var(--gold-light);
+}
+
+
+#cancel-offer-btn {
+    background-color: transparent;
+    color: var(--gold);
+}
+
+#cancel-offer-btn:hover {
+    background-color: var(--gold);
+    color: var(--black);
+}
+
+
+/* =========================================================
+   OFFER CARDS CONTAINER
+========================================================= */
+
+#admin-offers {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 25px;
+}
+
+
+/* =========================================================
+   ADMIN OFFER CARD
+========================================================= */
+
+.admin-offer-card {
+    width: 100%;
+    min-width: 0;
+
+    padding: 25px;
+
+    background-color: var(--dark);
+
+    border: 1px solid rgba(201, 164, 92, 0.35);
+    border-radius: 14px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.admin-offer-card:hover {
+    border-color: var(--gold);
+
+    box-shadow:
+        0 0 25px rgba(201, 164, 92, 0.18);
+
+    transform: translateY(-4px);
+}
+
+
+/* =========================================================
+   OFFER INFORMATION
+========================================================= */
+
+.admin-offer-info h3 {
+    margin: 0 0 10px;
+
+    color: var(--cream);
+
+    font-size: 22px;
+    line-height: 1.3;
+}
+
+.admin-offer-info > p {
+    margin: 0 0 20px;
+
+    color: var(--text);
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   OFFER DETAILS
+========================================================= */
+
+.admin-offer-details {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid rgba(201, 164, 92, 0.15);
+}
+
+.admin-offer-details span {
+    color: var(--text);
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.admin-offer-details strong {
+    color: var(--gold);
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   OFFER ACTION BUTTONS
+========================================================= */
+
+.admin-offer-actions {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 22px;
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(201, 164, 92, 0.15);
+}
+
+.admin-offer-actions button {
+    flex: 1;
+
+    min-width: 70px;
+
+    padding: 9px 10px;
+
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+
+    background-color: transparent;
+    color: var(--gold);
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.admin-offer-actions button:hover {
+    background-color: var(--gold);
+    color: var(--black);
+}
+
+
+/* =========================================================
+   OFFER TABLE EMPTY / LOADING MESSAGE
+========================================================= */
+
+#admin-offers > p {
+    grid-column: 1 / -1;
+
+    margin: 10px 0;
+
+    color: var(--text);
+
+    text-align: center;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   OFFER TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    #admin-offers {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   OFFER MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    #add-offer-btn {
+        width: 100%;
+    }
+
+    #admin-offers {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .admin-offer-card {
+        padding: 22px;
+    }
+
+    .admin-offer-info h3 {
+        font-size: 20px;
+    }
+
+    .admin-offer-actions {
+        gap: 8px;
+    }
+
+    .admin-offer-actions button {
+        min-width: 0;
+        padding: 9px 8px;
+    }
+
+}
+/* =========================================================
+   ADMIN SOCIAL MEDIA MANAGEMENT
+========================================================= */
+
+#social-link-form,
+#admin-social-links {
+    scroll-margin-top: 100px;
+}
+
+
+/* =========================================================
+   ADD SOCIAL LINK BUTTON
+========================================================= */
+
+#add-social-link-btn {
+    padding: 12px 22px;
+
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+
+    background-color: var(--gold);
+    color: var(--black);
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+    white-space: nowrap;
+
+    transition: 0.3s ease;
+}
+
+#add-social-link-btn:hover {
+    background-color: var(--gold-light);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   SOCIAL LINK FORM
+========================================================= */
+
+#social-link-form {
+    background-color: var(--dark);
+
+    border: 1px solid rgba(201, 164, 92, 0.35);
+    border-radius: 15px;
+
+    box-shadow: 0 0 25px rgba(201, 164, 92, 0.08);
+}
+
+
+/* =========================================================
+   SOCIAL LINK INPUTS
+========================================================= */
+
+#social-link-platform,
+#social-link-url,
+#social-link-order {
+    width: 100%;
+}
+
+
+/* =========================================================
+   SAVE BUTTON
+========================================================= */
+
+#save-social-link-btn {
+    background-color: var(--gold);
+    color: var(--black);
+}
+
+#save-social-link-btn:hover {
+    background-color: var(--gold-light);
+}
+
+
+/* =========================================================
+   CANCEL BUTTON
+========================================================= */
+
+#cancel-social-link-btn {
+    background-color: transparent;
+    color: var(--gold);
+}
+
+#cancel-social-link-btn:hover {
+    background-color: var(--gold);
+
+    color: var(--black);
+}
+
+
+/* =========================================================
+   SOCIAL LINKS GRID
+========================================================= */
+
+#admin-social-links {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 25px;
+}
+
+
+/* =========================================================
+   SOCIAL LINK CARD
+========================================================= */
+
+.admin-social-link-card {
+    width: 100%;
+    min-width: 0;
+
+    padding: 25px;
+
+    background-color: var(--dark);
+
+    border: 1px solid rgba(201, 164, 92, 0.35);
+    border-radius: 14px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    box-sizing: border-box;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.admin-social-link-card:hover {
+    border-color: var(--gold);
+
+    box-shadow:
+        0 0 25px rgba(201, 164, 92, 0.18);
+
+    transform: translateY(-4px);
+}
+
+
+/* =========================================================
+   SOCIAL LINK INFORMATION
+========================================================= */
+
+.admin-social-link-info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.admin-social-link-info h3 {
+    margin: 0;
+
+    color: var(--cream);
+
+    font-size: 22px;
+    line-height: 1.3;
+}
+
+
+.admin-social-link-info p {
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   SOCIAL LINK URL
+========================================================= */
+
+.admin-social-link-url {
+    display: block;
+
+    color: var(--gold);
+
+    text-decoration: none;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    word-break: break-all;
+
+    transition: 0.3s ease;
+}
+
+
+.admin-social-link-url:hover {
+    color: var(--gold-light);
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   SOCIAL LINK DETAILS
+========================================================= */
+
+.admin-social-link-details {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 20px;
+    padding-top: 15px;
+
+    border-top:
+        1px solid rgba(201, 164, 92, 0.15);
+}
+
+
+.admin-social-link-details span {
+    color: var(--text);
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+.admin-social-link-details strong {
+    color: var(--gold);
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   SOCIAL LINK ACTIONS
+========================================================= */
+
+.admin-social-link-actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 22px;
+    padding-top: 18px;
+
+    border-top:
+        1px solid rgba(201, 164, 92, 0.15);
+}
+
+
+.admin-social-link-actions button {
+    flex: 1;
+
+    min-width: 70px;
+
+    padding: 9px 10px;
+
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+
+    background-color: transparent;
+    color: var(--gold);
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.admin-social-link-actions button:hover {
+    background-color: var(--gold);
+
+    color: var(--black);
+}
+
+
+/* =========================================================
+   NO SOCIAL LINKS MESSAGE
+========================================================= */
+
+#admin-social-links > p {
+    grid-column: 1 / -1;
+
+    margin: 10px 0;
+
+    color: var(--text);
+
+    text-align: center;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    #admin-social-links {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    #add-social-link-btn {
+        width: 100%;
+    }
+
+
+    #admin-social-links {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+
+    .admin-social-link-card {
+        padding: 22px;
+    }
+
+
+    .admin-social-link-info h3 {
+        font-size: 20px;
+    }
+
+
+    .admin-social-link-actions {
+        gap: 8px;
+    }
+
+
+    .admin-social-link-actions button {
+        min-width: 0;
+
+        padding: 9px 8px;
+    }
+
+}
+
+/* =========================================================
+   ADMIN APPOINTMENTS MANAGEMENT
+========================================================= */
+
+
+/* APPOINTMENTS CONTAINER */
+
+#admin-appointments {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 25px;
+    margin-top: 25px;
+}
+
+
+/* APPOINTMENT CARD */
+
+.admin-appointment-card {
+    width: 100%;
+    min-width: 0;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+
+    padding: 25px;
+
+    background-color: var(--dark);
+
+    border: 1px solid rgba(201, 164, 92, 0.35);
+    border-radius: 14px;
+
+    box-sizing: border-box;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.admin-appointment-card:hover {
+    border-color: var(--gold);
+
+    box-shadow:
+        0 0 25px rgba(201, 164, 92, 0.18);
+
+    transform: translateY(-3px);
+}
+
+
+/* APPOINTMENT INFORMATION */
+
+.admin-appointment-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.admin-appointment-info h3 {
+    margin: 0 0 18px;
+
+    color: var(--cream);
+
+    font-size: 22px;
+    line-height: 1.3;
+}
+
+.admin-appointment-info p {
+    margin: 9px 0;
+
+    color: var(--text);
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    overflow-wrap: anywhere;
+}
+
+.admin-appointment-info p strong {
+    color: var(--gold);
+    font-weight: 600;
+}
+
+
+/* APPOINTMENT ACTIONS */
+
+.admin-appointment-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 12px;
+
+    width: 180px;
+    flex-shrink: 0;
+}
+
+.admin-appointment-actions label {
+    color: var(--gold);
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* STATUS SELECT */
+
+.appointment-status-select {
+    width: 100%;
+
+    padding: 11px 12px;
+
+    border: 1px solid rgba(201, 164, 92, 0.5);
+    border-radius: 6px;
+
+    background-color: #1E1914;
+    color: var(--cream);
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+.appointment-status-select:focus {
+    outline: none;
+
+    border-color: var(--gold);
+
+    box-shadow:
+        0 0 0 2px rgba(201, 164, 92, 0.08);
+}
+
+
+/* DELETE BUTTON */
+
+.delete-appointment-btn {
+    width: 100%;
+
+    padding: 10px 14px;
+
+    border: 1px solid #a94442;
+    border-radius: 6px;
+
+    background-color: transparent;
+    color: #e58b87;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.delete-appointment-btn:hover {
+    background-color: #a94442;
+    color: #ffffff;
+
+    border-color: #a94442;
+}
+
+
+/* EMPTY / LOADING MESSAGE */
+
+#admin-appointments > p {
+    width: 100%;
+
+    margin: 10px 0;
+
+    padding: 25px;
+
+    border: 1px dashed rgba(201, 164, 92, 0.35);
+    border-radius: 10px;
+
+    color: var(--text);
+
+    text-align: center;
+    line-height: 1.6;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   APPOINTMENTS TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    .admin-appointment-card {
+        gap: 20px;
+    }
+
+    .admin-appointment-actions {
+        width: 160px;
+    }
+
+}
+
+
+/* =========================================================
+   APPOINTMENTS MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .admin-appointment-card {
+        flex-direction: column;
+
+        gap: 25px;
+
+        padding: 22px;
+    }
+
+    .admin-appointment-info h3 {
+        font-size: 20px;
+    }
+
+    .admin-appointment-actions {
+        width: 100%;
+    }
+
+}
+
+
+/* SMALL MOBILE */
+
+@media (max-width: 480px) {
+
+    .admin-appointment-card {
+        padding: 18px;
+    }
+
+    .admin-appointment-info p {
+        font-size: 13px;
+    }
+
+}
+
+/* =========================================
+   CLIENT OFFERS SECTION
+   ========================================= */
+
+.offers {
+    padding: 70px 40px;
+    background-color: var(--dark);
+    text-align: center;
+}
+
+.offers h2 {
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.offers > p {
+    color: var(--text);
+    margin-bottom: 40px;
+}
+
+#offers-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.client-offer-card {
+    background-color: var(--card);
+    border: 1px solid rgba(201, 164, 92, 0.3);
+    border-radius: 10px;
+    padding: 25px;
+    text-align: left;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.client-offer-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+.client-offer-card h3 {
+    color: var(--gold-light);
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.client-offer-card p {
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.client-offer-price {
+    color: var(--gold);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.client-offer-validity {
+    color: var(--text);
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .offers {
+        padding: 50px 20px;
+    }
+
+    .offers h2 {
+        font-size: 30px;
+    }
+
+    #offers-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .client-offer-card {
+        padding: 20px;
+    }
+}
+
+/* =========================================
+   BOOKING POPUP
+   ========================================= */
+
+#booking-popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 20px;
+    overflow-y: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+#booking-popup.booking-popup-open {
+    display: flex;
+}
+
+.booking-popup-content {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background-color: var(--dark);
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    padding: 35px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.booking-popup-content h2 {
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.close-booking-popup {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    border: none;
+    background: transparent;
+    color: var(--gold);
+    font-size: 32px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-booking-popup:hover {
+    color: var(--gold-light);
+}
+
+.booking-popup-content .form-group {
+    margin-bottom: 18px;
+}
+
+.booking-popup-content label {
+    display: block;
+    color: var(--text);
+    margin-bottom: 7px;
+    font-weight: 500;
+}
+
+.booking-popup-content input,
+.booking-popup-content select,
+.booking-popup-content textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(201, 164, 92, 0.4);
+    border-radius: 6px;
+    background-color: var(--card);
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+.booking-popup-content textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.booking-popup-content input:focus,
+.booking-popup-content select:focus,
+.booking-popup-content textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
+#popup-submit-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--gold);
+    color: var(--dark);
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#popup-submit-btn:hover {
+    background-color: var(--gold-light);
+}
+
+#popup-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#popup-booking-message {
+    margin-top: 15px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+body.popup-open {
+    overflow: hidden;
+}
+
+@media (max-width: 600px) {
+
+    .booking-popup-content {
+        padding: 30px 20px;
+    }
+
+    .booking-popup-content h2 {
+        font-size: 26px;
+    }
+
+}
