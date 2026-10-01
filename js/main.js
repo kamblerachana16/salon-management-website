@@ -1,74 +1,110 @@
-
 /*
     main.js
     ---------------------------------------------------
     Shared JavaScript for the customer-facing salon website.
-    Handles mobile navigation and booking popup.
+
+    Handles:
+    1. Mobile navigation
+    2. Book Appointment popup
 */
 
+
 document.addEventListener("DOMContentLoaded", function () {
+
 
     // =========================================
     // MOBILE NAVIGATION
     // =========================================
 
-    const navToggle = document.getElementById("navToggle");
-    const navLinks = document.getElementById("navLinks");
+    const navToggle =
+        document.getElementById("navToggle");
+
+    const navLinks =
+        document.getElementById("navLinks");
+
 
     if (navToggle && navLinks) {
 
-        navToggle.addEventListener("click", function () {
+        navToggle.addEventListener(
+            "click",
+            function () {
 
-            const isOpen =
-                navLinks.classList.toggle("nav-open");
+                const isOpen =
+                    navLinks.classList.toggle(
+                        "nav-open"
+                    );
 
-            navToggle.classList.toggle(
-                "nav-toggle-open",
-                isOpen
-            );
 
-            navToggle.setAttribute(
-                "aria-expanded",
-                isOpen ? "true" : "false"
-            );
-
-        });
-
-        navLinks.querySelectorAll("a").forEach(function (link) {
-
-            link.addEventListener("click", function () {
-
-                navLinks.classList.remove("nav-open");
-
-                navToggle.classList.remove(
-                    "nav-toggle-open"
+                navToggle.classList.toggle(
+                    "nav-toggle-open",
+                    isOpen
                 );
+
 
                 navToggle.setAttribute(
                     "aria-expanded",
-                    "false"
+                    isOpen ? "true" : "false"
+                );
+
+            }
+        );
+
+
+        // Close mobile menu after clicking a link
+
+        navLinks
+            .querySelectorAll("a")
+            .forEach(function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        navLinks.classList.remove(
+                            "nav-open"
+                        );
+
+                        navToggle.classList.remove(
+                            "nav-toggle-open"
+                        );
+
+                        navToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                    }
                 );
 
             });
 
-        });
-
     }
+
 
 
     // =========================================
     // CREATE BOOKING POPUP
     // =========================================
 
-    if (!document.getElementById("booking-popup")) {
+    if (
+        !document.getElementById(
+            "booking-popup"
+        )
+    ) {
 
-        const popup = document.createElement("div");
+        const popup =
+            document.createElement("div");
 
-        popup.id = "booking-popup";
+
+        popup.id =
+            "booking-popup";
+
 
         popup.innerHTML = `
 
             <div class="booking-popup-content">
+
+                <!-- CLOSE BUTTON -->
 
                 <button
                     type="button"
@@ -80,9 +116,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 </button>
 
-                <h2>Book Your Appointment</h2>
+
+                <!-- TITLE -->
+
+                <h2>
+                    Book Your Appointment
+                </h2>
+
+
+                <!-- BOOKING FORM -->
 
                 <form id="booking-popup-form">
+
+
+                    <!-- NAME -->
 
                     <div class="form-group">
 
@@ -93,11 +140,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         <input
                             type="text"
                             id="popup-name"
-                            name="name"
                             placeholder="Enter your name"
                             required>
 
                     </div>
+
+
+                    <!-- EMAIL -->
 
                     <div class="form-group">
 
@@ -108,11 +157,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         <input
                             type="email"
                             id="popup-email"
-                            name="email"
                             placeholder="Enter your email"
                             required>
 
                     </div>
+
+
+                    <!-- PHONE -->
 
                     <div class="form-group">
 
@@ -123,12 +174,15 @@ document.addEventListener("DOMContentLoaded", function () {
                         <input
                             type="tel"
                             id="popup-phone"
-                            name="phone"
                             placeholder="Enter your phone number"
                             pattern="[0-9]{10}"
+                            title="Please enter a valid 10-digit phone number"
                             required>
 
                     </div>
+
+
+                    <!-- DATE -->
 
                     <div class="form-group">
 
@@ -139,10 +193,12 @@ document.addEventListener("DOMContentLoaded", function () {
                         <input
                             type="date"
                             id="popup-date"
-                            name="date"
                             required>
 
                     </div>
+
+
+                    <!-- SERVICE -->
 
                     <div class="form-group">
 
@@ -152,7 +208,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         <select
                             id="popup-service"
-                            name="service"
                             required>
 
                             <option value="">
@@ -183,6 +238,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     </div>
 
+
+                    <!-- TIME -->
+
                     <div class="form-group">
 
                         <label for="popup-time">
@@ -192,12 +250,14 @@ document.addEventListener("DOMContentLoaded", function () {
                         <input
                             type="time"
                             id="popup-time"
-                            name="time"
                             min="10:00"
                             max="21:00"
                             required>
 
                     </div>
+
+
+                    <!-- MESSAGE -->
 
                     <div class="form-group">
 
@@ -207,11 +267,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         <textarea
                             id="popup-message"
-                            name="message"
                             placeholder="Any special requests...">
                         </textarea>
 
                     </div>
+
+
+                    <!-- SUBMIT -->
 
                     <button
                         type="submit"
@@ -221,10 +283,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     </button>
 
+
+                    <!-- MESSAGE -->
+
                     <p
                         id="popup-booking-message"
                         role="status">
                     </p>
+
 
                 </form>
 
@@ -232,33 +298,70 @@ document.addEventListener("DOMContentLoaded", function () {
 
         `;
 
-        document.body.appendChild(popup);
+
+        document.body.appendChild(
+            popup
+        );
 
     }
 
 
+
     // =========================================
-    // BOOKING POPUP OPEN / CLOSE
+    // GET POPUP ELEMENTS
     // =========================================
 
     const bookingPopup =
-        document.getElementById("booking-popup");
+        document.getElementById(
+            "booking-popup"
+        );
+
 
     const closePopup =
-        document.getElementById("close-booking-popup");
+        document.getElementById(
+            "close-booking-popup"
+        );
+
+
+
+    // =========================================
+    // FIND BOOK APPOINTMENT BUTTONS
+    // =========================================
 
     const bookButtons =
         document.querySelectorAll(
             ".nav-btn, .hero-btn, .book-btn"
         );
 
-    function openBookingPopup() {
 
-        bookingPopup.classList.add("booking-popup-open");
 
-        document.body.classList.add("popup-open");
+    // =========================================
+    // OPEN POPUP
+    // =========================================
+
+    function openBookingPopup(event) {
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+
+        bookingPopup.classList.add(
+            "booking-popup-open"
+        );
+
+
+        document.body.classList.add(
+            "popup-open"
+        );
 
     }
+
+
+
+    // =========================================
+    // CLOSE POPUP
+    // =========================================
 
     function closeBookingPopup() {
 
@@ -266,32 +369,87 @@ document.addEventListener("DOMContentLoaded", function () {
             "booking-popup-open"
         );
 
-        document.body.classList.remove("popup-open");
+
+        document.body.classList.remove(
+            "popup-open"
+        );
 
     }
 
-    bookButtons.forEach(function (button) {
 
-        button.addEventListener("click", function (event) {
 
-            event.preventDefault();
+    // =========================================
+    // ADD CLICK EVENT TO BOOK BUTTONS
+    // =========================================
 
-            openBookingPopup();
+    bookButtons.forEach(
+        function (button) {
 
-        });
+            button.addEventListener(
+                "click",
+                openBookingPopup
+            );
 
-    });
-
-    closePopup.addEventListener(
-        "click",
-        closeBookingPopup
+        }
     );
 
-    bookingPopup.addEventListener(
-        "click",
+
+
+    // =========================================
+    // CLOSE BUTTON
+    // =========================================
+
+    if (closePopup) {
+
+        closePopup.addEventListener(
+            "click",
+            closeBookingPopup
+        );
+
+    }
+
+
+
+    // =========================================
+    // CLOSE WHEN CLICKING OUTSIDE
+    // =========================================
+
+    if (bookingPopup) {
+
+        bookingPopup.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    event.target ===
+                    bookingPopup
+                ) {
+
+                    closeBookingPopup();
+
+                }
+
+            }
+        );
+
+    }
+
+
+
+    // =========================================
+    // CLOSE WITH ESCAPE KEY
+    // =========================================
+
+    document.addEventListener(
+        "keydown",
         function (event) {
 
-            if (event.target === bookingPopup) {
+            if (
+                event.key === "Escape" &&
+                bookingPopup.classList.contains(
+                    "booking-popup-open"
+                )
+            ) {
 
                 closeBookingPopup();
 
@@ -299,5 +457,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
     );
+
 
 });
