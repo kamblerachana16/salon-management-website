@@ -1,3 +1,2 @@
+supabase.js
 .env
-.env.local
-.env.*.local

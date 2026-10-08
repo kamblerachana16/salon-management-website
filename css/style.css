@@ -624,6 +624,7 @@ header {
         grid-template-columns: 1fr;
     }
 }
+
 /* =========================
    ABOUT US PAGE
 ========================= */
@@ -1428,6 +1429,7 @@ body {
         min-width: 0;
     }
 }
+
 /* =========================================================
    ADMIN DASHBOARD
 ========================================================= */
@@ -1445,7 +1447,7 @@ body {
     color: var(--gold);
 }
 
-.admin-dashboard > p {
+.admin-dashboard>p {
     text-align: center;
     max-width: 700px;
     margin: 0 auto 60px;
@@ -1687,6 +1689,7 @@ body {
 .admin-service-item:last-child {
     border-bottom: none;
 }
+
 .admin-service-item-details {
     flex: 1;
     min-width: 0;
@@ -1991,7 +1994,7 @@ body {
     background-color: var(--gold);
 }
 
-.admin-login-box > p {
+.admin-login-box>p {
     text-align: center;
 
     font-size: 16px;
@@ -2079,7 +2082,7 @@ body {
         font-size: 34px;
     }
 
-    .admin-dashboard > p {
+    .admin-dashboard>p {
         margin-bottom: 40px;
     }
 
@@ -2163,12 +2166,13 @@ body {
     }
 
 }
+
 .admin-service-card button {
     font-family: 'Montserrat', sans-serif;
     cursor: pointer;
 }
 
-.admin-service-card > button {
+.admin-service-card>button {
     padding: 8px 14px;
     margin-top: 12px;
 
@@ -2184,10 +2188,11 @@ body {
     transition: 0.3s ease;
 }
 
-.admin-service-card > button:hover {
+.admin-service-card>button:hover {
     background-color: var(--gold);
     color: var(--black);
 }
+
 /* =========================================================
    ADMIN OFFER MANAGEMENT
 ========================================================= */
@@ -2339,7 +2344,7 @@ body {
     line-height: 1.3;
 }
 
-.admin-offer-info > p {
+.admin-offer-info>p {
     margin: 0 0 20px;
 
     color: var(--text);
@@ -2425,7 +2430,7 @@ body {
    OFFER TABLE EMPTY / LOADING MESSAGE
 ========================================================= */
 
-#admin-offers > p {
+#admin-offers>p {
     grid-column: 1 / -1;
 
     margin: 10px 0;
@@ -2484,6 +2489,7 @@ body {
     }
 
 }
+
 /* =========================================================
    ADMIN SOCIAL MEDIA MANAGEMENT
 ========================================================= */
@@ -2782,7 +2788,7 @@ body {
    NO SOCIAL LINKS MESSAGE
 ========================================================= */
 
-#admin-social-links > p {
+#admin-social-links>p {
     grid-column: 1 / -1;
 
     margin: 10px 0;
@@ -3018,7 +3024,7 @@ body {
 
 /* EMPTY / LOADING MESSAGE */
 
-#admin-appointments > p {
+#admin-appointments>p {
     width: 100%;
 
     margin: 10px 0;
@@ -3110,7 +3116,7 @@ body {
     margin-bottom: 12px;
 }
 
-.offers > p {
+.offers>p {
     color: var(--text);
     margin-bottom: 40px;
 }
@@ -3191,12 +3197,20 @@ body {
 
 #booking-popup {
     display: none;
+
     position: fixed;
     inset: 0;
+
     z-index: 9999;
+
     background-color: rgba(0, 0, 0, 0.75);
+
     padding: 20px;
-    overflow-y: auto;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
     align-items: center;
     justify-content: center;
 }
@@ -3205,36 +3219,72 @@ body {
     display: flex;
 }
 
+
+/* =========================================
+   BOOKING POPUP CONTENT
+   ========================================= */
+
 .booking-popup-content {
     position: relative;
+
     width: 100%;
     max-width: 600px;
+
     max-height: 90vh;
+
     overflow-y: auto;
+    overflow-x: hidden;
+
     background-color: var(--dark);
+
     border: 1px solid var(--gold);
     border-radius: 12px;
+
     padding: 35px;
+
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+
+    box-sizing: border-box;
 }
+
+/* =========================================
+   POPUP TITLE
+   ========================================= */
 
 .booking-popup-content h2 {
     color: var(--gold);
+
     font-family: 'Playfair Display', serif;
+
     font-size: 30px;
+
     text-align: center;
+
+    margin-top: 0;
     margin-bottom: 25px;
 }
 
+
+/* =========================================
+   CLOSE BUTTON
+   ========================================= */
+
 .close-booking-popup {
     position: absolute;
+
     top: 12px;
     right: 18px;
+
     border: none;
+
     background: transparent;
+
     color: var(--gold);
+
     font-size: 32px;
+
     cursor: pointer;
+
     line-height: 1;
 }
 
@@ -3242,32 +3292,58 @@ body {
     color: var(--gold-light);
 }
 
+
+/* =========================================
+   FORM GROUP
+   ========================================= */
+
 .booking-popup-content .form-group {
     margin-bottom: 18px;
 }
 
+
+/* =========================================
+   LABELS
+   ========================================= */
+
 .booking-popup-content label {
     display: block;
+
     color: var(--text);
+
     margin-bottom: 7px;
+
     font-weight: 500;
 }
+
+
+/* =========================================
+   FORM INPUTS
+   ========================================= */
 
 .booking-popup-content input,
 .booking-popup-content select,
 .booking-popup-content textarea {
     width: 100%;
+
     padding: 12px;
+
     border: 1px solid rgba(201, 164, 92, 0.4);
+
     border-radius: 6px;
+
     background-color: var(--card);
+
     color: var(--text);
+
     font-family: 'Montserrat', sans-serif;
+
     box-sizing: border-box;
 }
 
 .booking-popup-content textarea {
     min-height: 90px;
+
     resize: vertical;
 }
 
@@ -3275,18 +3351,40 @@ body {
 .booking-popup-content select:focus,
 .booking-popup-content textarea:focus {
     outline: none;
+
     border-color: var(--gold);
 }
 
+
+/* =========================================
+   SUBMIT BUTTON
+   ========================================= */
+
 #popup-submit-btn {
+    display: block;
+
     width: 100%;
+
     padding: 14px;
+
+    margin-top: 5px;
+
     border: none;
+
     border-radius: 6px;
+
     background-color: var(--gold);
+
     color: var(--dark);
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 15px;
+
     font-weight: 700;
+
     cursor: pointer;
+
     transition: background-color 0.3s ease;
 }
 
@@ -3296,27 +3394,185 @@ body {
 
 #popup-submit-btn:disabled {
     opacity: 0.6;
+
     cursor: not-allowed;
 }
 
+
+/* =========================================
+   BOOKING MESSAGE
+   ========================================= */
+
 #popup-booking-message {
     margin-top: 15px;
+
+    margin-bottom: 0;
+
     text-align: center;
+
     line-height: 1.5;
 }
+
+
+/* =========================================
+   PREVENT PAGE SCROLL WHEN POPUP IS OPEN
+   ========================================= */
 
 body.popup-open {
     overflow: hidden;
 }
 
-@media (max-width: 600px) {
+/* =========================================
+   BOOKING POPUP - TABLET
+========================================= */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    #booking-popup {
+
+        position: fixed;
+        inset: 0;
+
+        padding: 20px;
+
+        box-sizing: border-box;
+
+        align-items: center;
+        justify-content: center;
+
+        overflow: hidden;
+    }
 
     .booking-popup-content {
-        padding: 30px 20px;
+        position: relative;
+
+        width: 100%;
+        max-width: 600px;
+
+        height: 80vh;
+        max-height: 80vh;
+
+        margin: 0;
+
+        padding: 35px;
+
+        box-sizing: border-box;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        -webkit-overflow-scrolling: touch;
+
+        flex-shrink: 1;
+    }
+}
+
+/* =========================================
+   BOOKING POPUP - MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    #booking-popup {
+        position: fixed;
+        inset: 0;
+
+        display: none;
+
+        padding: 10px;
+        box-sizing: border-box;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    #booking-popup.booking-popup-open {
+        display: flex;
+    }
+
+    .booking-popup-content {
+        position: relative;
+
+        width: 100%;
+        max-width: 600px;
+
+        /*
+           Important:
+           Do not force the popup to be exactly
+           the full viewport height.
+        */
+        height: auto;
+        max-height: calc(100dvh - 20px);
+
+        margin: 10px 0;
+
+        padding: 25px 18px 30px;
+
+        box-sizing: border-box;
+
+        /*
+           The CONTENT itself should scroll.
+        */
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        -webkit-overflow-scrolling: touch;
+
+        flex-shrink: 0;
     }
 
     .booking-popup-content h2 {
-        font-size: 26px;
+        font-size: 25px;
+
+        margin-top: 5px;
+        margin-bottom: 20px;
+
+        padding-right: 25px;
     }
 
+    .booking-popup-content .form-group {
+        margin-bottom: 14px;
+    }
+
+    .booking-popup-content label {
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+
+    .booking-popup-content input,
+    .booking-popup-content select,
+    .booking-popup-content textarea {
+        width: 100%;
+
+        padding: 10px;
+
+        font-size: 15px;
+
+        box-sizing: border-box;
+    }
+
+    .booking-popup-content textarea {
+        min-height: 65px;
+        max-height: 120px;
+    }
+
+    #popup-submit-btn {
+        display: block;
+
+        width: 100%;
+
+        padding: 13px;
+
+        margin-top: 10px;
+        margin-bottom: 20px;
+
+        box-sizing: border-box;
+    }
+
+    #popup-booking-message {
+        margin-bottom: 20px;
+    }
 }
